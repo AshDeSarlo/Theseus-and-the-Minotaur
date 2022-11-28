@@ -11,28 +11,44 @@ public class player {
     public int maxY;
     public int minX;
     public int minY;
-    public ArrayList<String> inventory;
+    public int speed;
+    public ArrayList<Item> inventory;
     
-    public player(String name, int x, int y, int maxX, int maxY, int minX, int minY) {
+    
+    public player(String name, int x, int y, int speed, int maxX, int maxY, int minX, int minY) {
+        this.name = name;
+        this.x = x;
+        this.y = y; 
+        this.speed = speed;
+        this.setMaxMin(maxX, maxY, minX, minY);
+        this.inventory = new ArrayList<Item>();
+    }
+    
+    public player(String name, int x, int y, int speed) {
         this.name = name;
         this.x = x;
         this.y = y;  
-        this.setMaxMin(maxX, maxY, minX, minY);
-        this.inventory = new ArrayList<String>();
+        this.speed = speed;
+        this.setMaxMin(100, 100, -100, -100);
+        this.inventory = new ArrayList<Item>();
     }
     
     public player(String name, int x, int y) {
         this.name = name;
         this.x = x;
         this.y = y;  
+        this.speed = 1;
         this.setMaxMin(100, 100, -100, -100);
+        this.inventory = new ArrayList<Item>();
     }
     
     public player(String name) {
         this.name = name;
         this.x = 0;
         this.y = 0;
+        this.speed = 1;
         this.setMaxMin(100, 100, -100, -100);
+        this.inventory = new ArrayList<Item>();
     }
     
     public String toString() {
@@ -98,13 +114,49 @@ public class player {
         }
     }
     
+    // Movement commands Generalized
+    
+    // Ifno args are presented, uses speed
+    
+    public void moveLeft() {
+        for (int i = 0; i < this.speed; i++) {
+            if (this.x-1 >= this.minX) {
+                this.x--;
+            }
+        }
+    }
+    
+    public void moveRight() {
+        for (int i = 0; i < this.speed; i++) {
+            if (this.x+1 <= this.maxX) {
+                this.x++;
+            }
+        }
+    }
+    
+    public void moveUp() {
+        for (int i = 0; i < this.speed; i++) {
+            if (this.y+1 <= this.maxY) {
+                this.y++;
+            }
+        }
+    }
+    
+    public void moveDown() {
+        for (int i = 0; i < this.speed; i++) {
+            if (this.y-1 >= this.minY) {
+                this.y--;
+            }
+        }
+    }
+    
     // Inventory support
     
-    public void addItem(String item) {
+    public void addItem(Item item) {
         this.inventory.add(item);
     }
     
-    public Boolean hasItem(String item) {
+    public Boolean hasItem(Item item) {
         if (this.inventory.contains(item)) {
             return true;
         } else {
@@ -114,7 +166,7 @@ public class player {
     
     public void printInventory() {
         for (int i = 0; i < inventory.size(); i++) {
-            System.out.println(inventory.get(i));
+            System.out.println(inventory.get(i).toString());
         } 
     }
     
