@@ -1,0 +1,32 @@
+ - - - Board Data - - - 
+
+10 num_rows
+10 num_columns
+
+ - - - Player Data - - -
+
+Theseus player_name
+1 player_speed
+1 start_back
+0 start_center
+0 start_random
+
+ - - - Enemy Data - - -
+
+1 num_enemies
+
+Minotaur enemy_name
+2 enemy_speed
+1 is_smart
+0 random_start
+5 start_x
+10 start_y
+
+ - - - Item Data - - -
+
+1 num_items
+
+Sword item_name
+1 random_start
+0 start_x
+0 start_y
