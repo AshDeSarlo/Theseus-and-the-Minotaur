@@ -1,4 +1,4 @@
-# Theseus-and-the-Minotaur
+# Theseus and the Minotaur
 
 This project is a simple, turn-based game featuring Theseus trying to escape the Minotaur. 
 The game itself is fairy basic, with simple keyboard-based controls (wasd or arrow keys) for 
