@@ -4,14 +4,32 @@ import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.awt.geom.*;
+import javax.swing.*;
 
 public class createNewDataFile {
     
-    public static void main(String[] args) throws FileNotFoundException {
+    String filename;
+    
+    public createNewDataFile() throws FileNotFoundException {
         
-        File filename = new File("newData.txt");
+        // Get name of new file
+        this.filename = JOptionPane.showInputDialog("Please enter name of new file (.txt):");      
         
-        PrintWriter writer = new PrintWriter(filename);
+        
+        if (filename.equals("")) {
+            filename = "newData.txt";
+        } else {
+            filename = filename + ".txt";
+        }
+        
+        
+        // Write basic data
+        File file = new File(filename);
+        
+        PrintWriter writer = new PrintWriter(file);
         
         writer.println(" - - - Board Data - - - \n");
         
@@ -19,7 +37,7 @@ public class createNewDataFile {
         writer.println("10 num_columns");
         
         writer.println("\n - - - Player Data - - -\n");
-            
+        
         writer.println("Theseus player_name");
         writer.println("1 player_speed");
         writer.println("1 start_back");
@@ -52,6 +70,14 @@ public class createNewDataFile {
         writer.close();
         
         System.out.println("Done");
+    }
+    
+    public static void main(String[] args) throws FileNotFoundException {
+        createNewDataFile d = new createNewDataFile();
+    }
+    
+    public String getFilename() {
+        return this.filename;
     }
     
 }

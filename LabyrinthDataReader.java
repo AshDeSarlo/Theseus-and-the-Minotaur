@@ -73,10 +73,10 @@ public class LabyrinthDataReader {
         // Set starting location
         
         if (this.start_back) {
-            this.player_x = this.num_columns / 2;
+            this.player_x = (this.num_columns + 1) / 2;
             this.player_y = 1;
         } else if (this.start_center) {
-            this.player_x = this.num_columns / 2;
+            this.player_x = (this.num_columns + 1) / 2;
             this.player_y = this.num_rows / 2;
         } else {
             this.player_x = randRange(1, this.num_columns);
