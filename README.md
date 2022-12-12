@@ -19,6 +19,8 @@ the variables used to generate the board, then import it in when starting up the
 create custom levels for the game without any prior coding experience. Some copy and pasting is 
 required to use these files to their full advantage, but no true coding experience is necessary.
 
+. . .
+
 If given more time to work on this, I would implement the follwoing features:
 
   1. Collision detection for LPanels, allowing walls to be place inside the board and increase
